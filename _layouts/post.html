@@ -1,0 +1,33 @@
+---
+layout: default
+---
+
+<div class="all_content">
+    
+    <div class="post_container">
+        <div class="post_container_top"> post_container_top</div>
+        <div class="head_container">
+            <p class="tag_{{ page.category | remove: " " | replace:"&","-" }}">{{ page.category }}</p>
+            <h1>{{ page.title }} </h1>
+            <h6>{{ page.date | date_to_long_string}} </h6>
+
+            {% if page.thumbnail %}
+                <div class="head_picture" style="background-image: url({{ page.thumbnail }});"></div>
+            {% endif %}
+            
+        </div>
+
+        <div class="article_container">
+      
+    {{ content }} <!--liquid(jekyll使用語言之一)-->
+
+        </div>
+
+        <hr>
+        <p>like my blog? see more at .😬</p>
+
+    </div>
+</div>
+
+
+

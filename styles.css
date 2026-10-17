@@ -1,0 +1,236 @@
+a{
+    color: #222222 ;
+}
+
+.image figcaption{
+    text-align: center; 
+    color: grey; 
+    font-size: 0.8em;
+    margin: 0.4em;
+}
+
+
+/* <body> style for layouts */
+#default {
+    background-color: lightsalmon;
+    text-align: center;
+}
+
+#post {
+    background-color: whitesmoke;
+}
+
+
+
+
+/* Home */
+
+.content_section{
+}
+.sub_content_section{
+    border: thin solid lightpink;
+    display: inline-flex;
+}
+
+
+
+.thumbnail{
+    border: thin solid grey;
+    display: inline-block;
+    margin: 20px;
+    padding: 12px 0px 12px 0px;
+    width: 340px;
+    height: 400px;
+    background-color: whitesmoke;
+    text-align: center;
+}
+.thumbnail_highlight{
+    border: solid thin grey;
+    display: block;
+    margin: 20px;
+    padding: 12px 0px 12px 0px;
+    width: 340px;
+    height: 400px;
+    background-color: whitesmoke;
+    text-align: center;
+}
+.thumbnail h3{
+    text-align: center;
+}
+.thumbnail img, .thumbnail_highlight img{
+    width: 260px;
+    height: 210px;
+    display: block;
+    margin: auto;
+    object-fit: cover;
+}
+
+
+
+
+/* Blog */
+
+.thumbnail_container_all{
+    border: thin solid lightpink;
+    display: block;
+    margin: auto;
+    width: 1000px;
+}
+
+
+
+/* Post category tags & styles */
+
+#default .tag_learningnotes, #default .tag_testing, #default .tag_mood-murmur{
+    display: block;
+    margin: auto;
+    font-size: 0.8em;
+    text-align: center;
+}
+#default .tag_learningnotes{
+    width: 120px;
+    background-color: lightblue;
+}
+#default .tag_testing{
+    width: 120px;
+    background-color: lightgreen;
+}
+#default .tag_mood-murmur{
+    width: 120px;
+    background-color: lightpink;
+}
+
+#post .tag_learningnotes, #post .tag_testing, #post .tag_mood-murmur{
+    font-size: 0.9em;
+    text-align: center;
+}
+#post .tag_learningnotes{
+    color: lightblue;
+}
+#post .tag_testing{
+    color: lightgreen;
+}
+#post .tag_mood-murmur{
+    color: lightcoral;
+}
+
+
+
+/*-------Layout: 'post'-------*/
+
+.all_content {
+    position: relative;
+}
+
+.post_container_top{
+    z-index: 10;
+    position: absolute;
+    margin: auto;
+    left:0;
+    right:0;
+    top:-119px;
+    width: 560px;
+    height: 140px;
+    background-image: url(images/style/post_border_top_img.png);
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    margin-bottom: -16px;
+
+}
+
+.post_container{
+    margin: auto; /* horizontally center a block element (like <div>) */
+    margin-top: 100px;
+    width: 880px;
+    border: 12px solid transparent;
+    border-image: url(images/style/post_border.png) 33 round;
+}
+
+
+.head_container{
+    margin: 10px 30px 62px 30px;
+    text-align: center;
+    border: thin solid;
+    border-color: lightgray;
+}
+
+.head_container h1{
+    display: block;
+    font-size: 2.0em;
+    margin-bottom: -0.3em;
+}
+
+.head_container h6{
+    display: block;
+    font-weight: normal;
+    color: grey;
+}
+
+.head_picture{
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.article_container{
+    margin: 0px 68px 52px 68px;
+}
+
+.article_container h1{
+    font-size: 1.8em;
+}
+
+.article_container img{
+    display: block;
+    margin: auto;
+    width:640px;
+}
+
+
+
+@media only screen and (max-width: 620px) {
+    /* For mobile phones: */
+    /* Home */
+    #default, #post{
+    }
+    .thumbnail, .thumbnail_highlight{
+        width: 100%;
+        margin: 0;
+        display: block;
+        border: 0;
+    }
+    .thumbnail, .thumbnail_highlight{
+        border-bottom: thin solid grey;
+    }
+    .thumbnail img, .thumbnail_highlight img{
+        width: 100%;
+    }
+
+    /* Blog */
+    .thumbnail_container_all{
+        width: 100%;
+    }
+
+    /* Post */
+    .post_container_top, .article_container img{
+        width: 100%;
+    }
+
+    .post_container{
+        width: 96%;
+    }
+    
+    .post_container_top{
+        background-position: center bottom;
+    }
+
+    .head_container{
+        margin: 10px 0px 62px 0px;
+    }
+
+    .article_container{
+      margin: 0px 12px 52px 12px;
+    }
+}
+
