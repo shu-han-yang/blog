@@ -1,236 +1,201 @@
-a{
-    color: #222222 ;
+:root {
+  /* 背景層次：微淡粉霧薰衣草暖白 */
+  --bg-primary: #fbf9fb;       /* 主頁面底色：淡柔粉紫暖白 */
+  --bg-card: #ffffff;          /* 文章卡片底色：純淨白色浮起感 */
+  --bg-card-hover: #f7f3f8;    /* 卡片懸停淡紫底 */
+  --border-color: #ede5ef;     /* 柔和粉紫灰邊框 */
+  
+  /* 文字配色：帶深紫調的炭黑色，避免死黑 */
+  --text-main: #272129;        /* 沉穩深紫黑主標題與內文 */
+  --text-muted: #796e7e;       /* 灰紫調副標題、發布日期 */
+  
+  /* 紫色系主調（品牌點綴） */
+  --accent-purple: #7e57c2;    /* 核心紫：清新丁香紫（品牌標誌/按鈕） */
+  --accent-purple-hover: #653ba0; /* 懸停深紫 */
+  --accent-purple-light: #efe8f7; /* 標籤底色/強調區塊 */
+  
+  --tag-bg: #f2edf7;           /* 膠囊標籤底色 */
+  --tag-text: #6b557b;         /* 標籤字體色 */
+  --code-bg: #f4eff6;          /* 程式碼與區塊底色 */
+
+  --shadow-sm: 0 4px 12px rgba(100, 70, 120, 0.04);
+  --shadow-md: 0 8px 24px rgba(100, 70, 120, 0.08);
 }
 
-.image figcaption{
-    text-align: center; 
-    color: grey; 
-    font-size: 0.8em;
-    margin: 0.4em;
+/* 基礎排版與容器 */
+.blog-body-purple-light {
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.8;
+  margin: 0;
+  padding: 0;
 }
 
-
-/* <body> style for layouts */
-#default {
-    background-color: lightsalmon;
-    text-align: center;
+.blog-container {
+  max-width: 840px;
+  margin: 0 auto;
+  padding: 48px 24px;
 }
 
-#post {
-    background-color: whitesmoke;
+/* 總覽頁 Header */
+.blog-header {
+  margin-bottom: 48px;
+  text-align: left;
+}
+.blog-header h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+.blog-header h1 span {
+  color: var(--accent-purple);
+}
+.blog-header p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  margin: 0;
 }
 
-
-
-
-/* Home */
-
-.content_section{
-}
-.sub_content_section{
-    border: thin solid lightpink;
-    display: inline-flex;
+/* 文章卡片排版 */
+.post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
-
-
-.thumbnail{
-    border: thin solid grey;
-    display: inline-block;
-    margin: 20px;
-    padding: 12px 0px 12px 0px;
-    width: 340px;
-    height: 400px;
-    background-color: whitesmoke;
-    text-align: center;
+.post-card {
+  display: block;
+  text-decoration: none;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 28px 32px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.25s cubic-bezier(0.2, 0, 0, 1);
+  color: inherit;
 }
-.thumbnail_highlight{
-    border: solid thin grey;
-    display: block;
-    margin: 20px;
-    padding: 12px 0px 12px 0px;
-    width: 340px;
-    height: 400px;
-    background-color: whitesmoke;
-    text-align: center;
+.post-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: #d8c8df;
+  background: var(--bg-card-hover);
 }
-.thumbnail h3{
-    text-align: center;
+.post-card h2 {
+  font-size: 1.45rem;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+  color: var(--text-main);
+  transition: color 0.2s ease;
 }
-.thumbnail img, .thumbnail_highlight img{
-    width: 260px;
-    height: 210px;
-    display: block;
-    margin: auto;
-    object-fit: cover;
+.post-card:hover h2 {
+  color: var(--accent-purple);
 }
-
-
-
-
-/* Blog */
-
-.thumbnail_container_all{
-    border: thin solid lightpink;
-    display: block;
-    margin: auto;
-    width: 1000px;
+.post-card .post-meta {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+.post-card p.excerpt {
+  margin: 0 0 20px 0;
+  color: #4b414f;
+  font-size: 0.98rem;
+  line-height: 1.6;
 }
 
-
-
-/* Post category tags & styles */
-
-#default .tag_learningnotes, #default .tag_testing, #default .tag_mood-murmur{
-    display: block;
-    margin: auto;
-    font-size: 0.8em;
-    text-align: center;
+/* 膠囊標籤 */
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
-#default .tag_learningnotes{
-    width: 120px;
-    background-color: lightblue;
+.tag-badge {
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(126, 87, 194, 0.12);
+  transition: background 0.2s ease;
 }
-#default .tag_testing{
-    width: 120px;
-    background-color: lightgreen;
-}
-#default .tag_mood-murmur{
-    width: 120px;
-    background-color: lightpink;
+.post-card:hover .tag-badge {
+  background: var(--accent-purple-light);
 }
 
-#post .tag_learningnotes, #post .tag_testing, #post .tag_mood-murmur{
-    font-size: 0.9em;
-    text-align: center;
+/* 獨立內文頁（Single Post） */
+.post-article {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 48px;
+  box-shadow: var(--shadow-sm);
 }
-#post .tag_learningnotes{
-    color: lightblue;
+.post-title {
+  font-size: 2.3rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--text-main);
+  margin: 0 0 16px 0;
 }
-#post .tag_testing{
-    color: lightgreen;
+.post-meta-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 24px;
+  margin-bottom: 36px;
+  color: var(--text-muted);
+  font-size: 0.92rem;
 }
-#post .tag_mood-murmur{
-    color: lightcoral;
+.post-content {
+  font-size: 1.05rem;
+  color: #332b36;
 }
-
-
-
-/*-------Layout: 'post'-------*/
-
-.all_content {
-    position: relative;
+.post-content h2 {
+  font-size: 1.55rem;
+  color: var(--text-main);
+  margin-top: 2em;
+  margin-bottom: 0.8em;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
 }
-
-.post_container_top{
-    z-index: 10;
-    position: absolute;
-    margin: auto;
-    left:0;
-    right:0;
-    top:-119px;
-    width: 560px;
-    height: 140px;
-    background-image: url(images/style/post_border_top_img.png);
-    background-position: left bottom;
-    background-repeat: no-repeat;
-    margin-bottom: -16px;
-
+.post-content a {
+  color: var(--accent-purple);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
-
-.post_container{
-    margin: auto; /* horizontally center a block element (like <div>) */
-    margin-top: 100px;
-    width: 880px;
-    border: 12px solid transparent;
-    border-image: url(images/style/post_border.png) 33 round;
+.post-content a:hover {
+  color: var(--accent-purple-hover);
 }
-
-
-.head_container{
-    margin: 10px 30px 62px 30px;
-    text-align: center;
-    border: thin solid;
-    border-color: lightgray;
+.post-content pre {
+  background: var(--code-bg);
+  border: 1px solid var(--border-color);
+  padding: 18px;
+  border-radius: 12px;
+  overflow-x: auto;
 }
-
-.head_container h1{
-    display: block;
-    font-size: 2.0em;
-    margin-bottom: -0.3em;
+.post-footer-nav {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-color);
 }
-
-.head_container h6{
-    display: block;
-    font-weight: normal;
-    color: grey;
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent-purple);
+  font-weight: 600;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: var(--accent-purple-light);
+  transition: all 0.2s ease;
 }
-
-.head_picture{
-    height: 400px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.article_container{
-    margin: 0px 68px 52px 68px;
-}
-
-.article_container h1{
-    font-size: 1.8em;
-}
-
-.article_container img{
-    display: block;
-    margin: auto;
-    width:640px;
-}
-
-
-
-@media only screen and (max-width: 620px) {
-    /* For mobile phones: */
-    /* Home */
-    #default, #post{
-    }
-    .thumbnail, .thumbnail_highlight{
-        width: 100%;
-        margin: 0;
-        display: block;
-        border: 0;
-    }
-    .thumbnail, .thumbnail_highlight{
-        border-bottom: thin solid grey;
-    }
-    .thumbnail img, .thumbnail_highlight img{
-        width: 100%;
-    }
-
-    /* Blog */
-    .thumbnail_container_all{
-        width: 100%;
-    }
-
-    /* Post */
-    .post_container_top, .article_container img{
-        width: 100%;
-    }
-
-    .post_container{
-        width: 96%;
-    }
-    
-    .post_container_top{
-        background-position: center bottom;
-    }
-
-    .head_container{
-        margin: 10px 0px 62px 0px;
-    }
-
-    .article_container{
-      margin: 0px 12px 52px 12px;
-    }
+.back-btn:hover {
+  background: var(--accent-purple);
+  color: #ffffff;
 }
 

@@ -2,32 +2,39 @@
 layout: default
 ---
 
-<div class="all_content">
-    
-    <div class="post_container">
-        <div class="post_container_top"> post_container_top</div>
-        <div class="head_container">
-            <p class="tag_{{ page.category | remove: " " | replace:"&","-" }}">{{ page.category }}</p>
-            <h1>{{ page.title }} </h1>
-            <h6>{{ page.date | date_to_long_string}} </h6>
+<link rel="stylesheet" href="{{ '/assets/css/blog.css' | relative_url }}">
 
-            {% if page.thumbnail %}
-                <div class="head_picture" style="background-image: url({{ page.thumbnail }});"></div>
-            {% endif %}
-            
-        </div>
-
-        <div class="article_container">
+<div class="blog-body-purple-light">
+  <div class="blog-container">
+    <article class="post-article">
       
-    {{ content }} <!--liquid(jekyll使用語言之一)-->
-
+      <header>
+        <h1 class="post-title">{{ page.title }}</h1>
+        <div class="post-meta-bar">
+          <time datetime="{{ page.date | date_to_xmlschema }}">
+            {{ page.date | date: "%Y 年 %m 月 %d 日" }}
+          </time>
+          {% if page.tags.size > 0 %}
+            <div class="tag-list">
+              {% for tag in page.tags %}
+                <span class="tag-badge">#{{ tag }}</span>
+              {% endfor %}
+            </div>
+          {% endif %}
         </div>
+      </header>
 
-        <hr>
-        <p>like my blog? see more at .😬</p>
+      <div class="post-content">
+        {{ content }}
+      </div>
 
-    </div>
+      <div class="post-footer-nav">
+        <a href="{{ '/' | relative_url }}" class="back-btn">
+          ← Back to All
+        </a>
+      </div>
+
+    </article>
+  </div>
 </div>
-
-
 
