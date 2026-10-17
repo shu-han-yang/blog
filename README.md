@@ -1,2 +1,3 @@
 # blog
-Free illustration PNG Library created by Sunny Yang.
+Sunny Draws's Blog.
+by Sunny Yang.
